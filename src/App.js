@@ -5,6 +5,9 @@ import { OrbitControls, Environment } from "@react-three/drei";
 // Import components
 import GridLine from "./components/GridLine";
 import GridBox from "./components/GridBox";
+import WinnerLine from "./components/WinnerLine";
+import GameInfo from "./components/GameInfo";
+
 // Import background image
 import space from './space.hdr'
 
@@ -48,7 +51,7 @@ function App() {
 
   const [gameBoard, setGameBoard] = useState(Array(9).fill(null));
   const [nextTurn, setNextTurn] = useState(true);
-  const [winner, positionIndeces] = findWinner(gameBoard);
+  const [winner, positionIndices] = findWinner(gameBoard);
 
   function handleClick(i) {
     const boardCopy = [...gameBoard];
@@ -60,6 +63,10 @@ function App() {
     boardCopy[i] = nextTurn ? "Sphere" : "Cube";
     setGameBoard(boardCopy);
     setNextTurn(prevNextTurn => !prevNextTurn);
+  };
+
+  function resetGameBoard() {
+    setGameBoard(Array(9).fill(null));
   };
 
   return (
@@ -99,7 +106,17 @@ function App() {
             />
           )
         })}
+
+        {/* Render the winner */}
+        {winner ? <WinnerLine  positions={positions} positionIndices={positionIndices}/> : null}
       </Canvas>
+
+      <GameInfo
+        gameBoard={gameBoard}
+        nextTurn={nextTurn}
+        winner={winner}
+        resetGameBoard={resetGameBoard}
+      />
     </>
   )
 };
