@@ -1,32 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Salsa&display=swap");
+
+body {
+  min-height: 100vh;
+  font-family: "Quicksand", sans-serif;
+}
+
 .title {
-    width: 100%;
-    text-align: center;
-    font-size: 40px;
-    color: white;
-    position: absolute;
-    top: 10px;
-    cursor: pointer;
-  }
-  
-  .textBottomSection {
-    position: absolute;
-    bottom: 40px;
-    width: 100%;
-    text-align: center;
-  }
-  
-  .winnerMove {
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 22px;
-    color: white;
-    margin-bottom: 10px;
-  }
-  
-  .restartButton {
-    text-transform: uppercase;
-    font-size: 18px;
-    color: black;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+  font-family: "Salsa", cursive;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  top: 10px;
+  cursor: pointer;
+  /* border-radius: 8px 8px 0 0; */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  z-index: 2;
+}
+
+.textBottomSection {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.winnerMove {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 22px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.btn {
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(
+    45deg,
+    #5da9cb 0%,
+    #f09819 51%,
+    #5da9cb 100%
+  );
+  background-size: 200% auto;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background-position: right center;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.restartButton {
+  text-transform: uppercase;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.footer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  column-gap: 20px;
+  bottom: 0;
+  left: 50%;
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  width: 90%;
+  padding: 20px;
+  color: #f2f2f2;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  z-index: 2;
+}

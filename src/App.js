@@ -16,18 +16,18 @@ import './App.css'
 
 function App() {
   const positions = [
-    [-1.2, 2.4, 0],
-    [1.2, 2.4, 0],
-    [3.6, 2.4, 0],
-    [-1.2, 0, 0],
-    [1.2, 0, 0],
-    [3.6, 0, 0],
-    [-1.2, -2.4, 0],
-    [1.2, -2.4, 0],
-    [3.6, -2.4, 0],
+    [-2.5, 2.4, 0],
+    [-0.2, 2.4, 0],
+    [2.5, 2.4, 0],
+    [-2.5, 0, 0],
+    [-0.2, 0, 0],
+    [2.5, 0, 0],
+    [-2.5, -2.4, 0],
+    [-0.2, -2.4, 0],
+    [2.5, -2.4, 0],
   ];
 
-  function findWinner(gameboard) {
+  function findWinner(gameBoard) {
     let winningCombinations = [
       [0, 1, 2],
       [3, 4, 5],
@@ -42,8 +42,8 @@ function App() {
     for (let i = 0; i < winningCombinations.length; i++) {
       let [a, b, c] = winningCombinations[i];
       
-      if ( gameboard[a] && gameboard[a] === gameboard[b] && gameboard[a] === gameboard[c]) {
-        return [gameboard[a], winningCombinations[i]];
+      if ( gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+        return [gameBoard[a], winningCombinations[i]];
       } 
     }
     return [null, null];
@@ -90,10 +90,10 @@ function App() {
         <Environment background={true} files={space}/>
 
         {/* create grid */}
-        <GridLine position={[2.5, 0, 0]} />
-        <GridLine position={[0, 0, 0]} />
-        <GridLine position={[1.2, -1.2, 0]} rotation={[0, 0, Math.PI / 2]} />
-        <GridLine position={[1.2, 1.2, 0]} rotation={[0, 0, Math.PI / 2]} />
+        <GridLine position={[1, 0, 0]} />
+        <GridLine position={[-1.5, 0, 0]} />
+        <GridLine position={[0, -1.2, 0]} rotation={[0, 0, Math.PI / 2]} />
+        <GridLine position={[0, 1.2, 0]} rotation={[0, 0, Math.PI / 2]} />
       
         {positions.map((gridBox, idx) => {
           return (

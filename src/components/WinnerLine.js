@@ -6,17 +6,21 @@ function WinnerLine({ positions, positionIndices }) {
 
   const startPos = positions[positionIndices[0]];
   const endPos = positions[positionIndices[2]];
-  
+
   useLayoutEffect(() => {
-    ref.current.geometry.setFromPoints([startPos, endPos].map((point) => new THREE.Vector3(...point)))
-  }, [startPos, endPos])
+    const path = new THREE.LineCurve3(
+      new THREE.Vector3(...startPos),
+      new THREE.Vector3(...endPos)
+    );
+    const tubeGeometry = new THREE.TubeGeometry(path, 10, 0.1, 4, false);
+    ref.current.geometry = tubeGeometry;
+  }, [startPos, endPos]);
 
   return (
-    <line ref={ref} >
-      <bufferGeometry />
-      <lineBasicMaterial color="#42c940" linewidth={10}/>
-    </line>
-  )
+    <mesh ref={ref}>
+      <meshBasicMaterial color="#f09819" />
+    </mesh>
+  );
 }
 
 export default React.memo(WinnerLine);
